@@ -1,0 +1,39 @@
+{
+  "name": "@jk/header-sdk",
+  "version": "0.1.0",
+  "description": "JobKorea header as a framework-agnostic Web Component SDK",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/header-sdk.iife.js",
+  "module": "dist/header-sdk.es.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.build.json --noEmit false --emitDeclarationOnly",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "web-component",
+    "custom-elements",
+    "header",
+    "sdk",
+    "lit",
+    "jobkorea"
+  ],
+  "dependencies": {
+    "lit": "^3.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0",
+    "rimraf": "^5.0.5"
+  }
+}
