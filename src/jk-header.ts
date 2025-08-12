@@ -34,11 +34,13 @@ const BASE_STYLES = css`
   .brand {
     display: inline-flex;
     align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #0066cc;
     text-decoration: none;
-    margin-right: 30px;
+    margin-right: 10px;
+  }
+
+  .brand img {
+    height: 70px;
+    width: auto;
   }
 
   /* 검색 영역 (searchWrap) */
@@ -408,7 +410,7 @@ export class JkHeader extends LitElement {
             @click=${this.handleBrandClick}
             aria-label="잡코리아 홈"
           >
-            JOBKOREA
+            <img src="./src/assets/logo_motion_pc.gif" alt="JOBKOREA" />
           </a>
 
           <!-- 검색 영역 -->

@@ -102,24 +102,36 @@ const NAV_STYLES = css`
     gap: 30px;
   }
 
-  /* 메가메뉴 섹션 - 항상 모든 섹션이 보임 */
+  /* 메가메뉴 섹션  */
   .mega_section {
     display: block;
   }
 
-  .mega_section.active h3 {
-    color: #1565c0;
-    border-bottom-color: #1565c0;
-  }
-
   .mega_section h3 {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 700;
     color: #333;
     margin: 0 0 16px 0;
     padding-bottom: 8px;
-    border-bottom: 2px solid #e0e0e0;
     transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .mega_section h3::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 6px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9,18 15,12 9,6'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.2s ease;
+  }
+
+  .mega_section h3:hover::after {
+    transform: translateX(2px);
   }
 
   .mega_section .sub_menu_group {
@@ -153,7 +165,7 @@ const NAV_STYLES = css`
   }
 
   .mega_section .sub_menu_group a:hover {
-    color: #1565c0;
+    color: #003cff;
   }
 
   /* 첫 번째 줄 배치 */
@@ -221,7 +233,7 @@ const NAV_STYLES = css`
   }
 
   .service_links a:hover {
-    color: #1565c0;
+    color: #003cff;
   }
 
   .service_links .icon {
@@ -246,7 +258,7 @@ const NAV_STYLES = css`
   }
 
   .util_menu a:hover {
-    color: #1565c0;
+    color: #003cff;
   }
 
   /* 기업서비스 버튼 */

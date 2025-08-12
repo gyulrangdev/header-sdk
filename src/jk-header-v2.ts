@@ -46,25 +46,13 @@ const HEADER_STYLES = css`
   .brand {
     display: flex;
     align-items: center;
-    gap: 8px;
     text-decoration: none;
-    color: #1565c0;
-    font-size: 24px;
-    font-weight: bold;
     min-width: 140px;
   }
 
-  .brand_icon {
-    width: 32px;
-    height: 32px;
-    background: linear-gradient(135deg, #1565c0, #42a5f5);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
+  .brand img {
+    height: 70px;
+    width: auto;
   }
 
   /* 검색 영역 */
@@ -91,7 +79,7 @@ const HEADER_STYLES = css`
   }
 
   .top_menu a:hover {
-    color: #1565c0;
+    color: #003cff;
   }
 
   .top_menu .icon {
@@ -239,8 +227,7 @@ export class JkHeaderV2 extends LitElement {
             @click=${this.handleBrandClick}
             aria-label="잡코리아 홈"
           >
-            <div class="brand_icon">JK</div>
-            <span>JOBKOREA</span>
+            <img src="./src/assets/logo_motion_pc.gif" alt="JOBKOREA" />
           </a>
 
           <!-- 검색 영역 -->
