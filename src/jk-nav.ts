@@ -117,20 +117,18 @@ const NAV_STYLES = css`
     cursor: pointer;
   }
 
-  .mega_section h3::after {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-left: 6px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9,18 15,12 9,6'%3E%3C/polyline%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform 0.2s ease;
+  .mega_section h3 {
+    position: relative;
   }
 
-  .mega_section h3:hover::after {
+  .mega_section h3 jk-icon {
+    margin-left: 6px;
+    transition: transform 0.2s ease;
+    --icon-size: 16px;
+    --icon-color: #000;
+  }
+
+  .mega_section h3:hover jk-icon {
     transform: translateX(2px);
   }
 
@@ -428,7 +426,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>채용정보</h3>
+              <h3>채용정보<jk-icon name="chevron-right"></jk-icon></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li><a href="#" @click=${this.handleLinkClick}>지역별</a></li>
@@ -452,7 +450,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>이직은 원픽</h3>
+              <h3>이직은 원픽<jk-icon name="chevron-right"></jk-icon></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -476,7 +474,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>AI잡스</h3>
+              <h3>AI잡스<jk-icon name="chevron-right"></jk-icon></h3>
             </div>
 
             <!-- 하이테크 섹션 -->
@@ -486,7 +484,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>하이테크</h3>
+              <h3>하이테크<jk-icon name="chevron-right"></jk-icon></h3>
             </div>
 
             <!-- 공채정보 섹션 -->
@@ -495,7 +493,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>공채정보</h3>
+              <h3>공채정보<jk-icon name="chevron-right"></jk-icon></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -521,7 +519,7 @@ export class JkNav extends LitElement {
                   ? "active"
                   : ""}"
               >
-                <h3>헤드헌팅</h3>
+                <h3>헤드헌팅<jk-icon name="chevron-right"></jk-icon></h3>
                 <div class="sub_menu_group">
                   <ul>
                     <li>
@@ -554,7 +552,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>기업·연봉</h3>
+              <h3>기업·연봉<jk-icon name="chevron-right"></jk-icon></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -576,7 +574,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>커리어</h3>
+              <h3>커리어<jk-icon name="chevron-right"></jk-icon></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -622,7 +620,7 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>취업톡톡</h3>
+              <h3>취업톡톡<jk-icon name="chevron-right"></jk-icon></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -640,7 +638,11 @@ export class JkNav extends LitElement {
 
             <!-- 프로필 등록 섹션 -->
             <div class="mega_section profile">
-              <h3>프로필 등록하고<br />포지션 제안 받으세요</h3>
+              <h3>
+                프로필 등록하고<br />포지션 제안 받으세요<jk-icon
+                  name="chevron-right"
+                ></jk-icon>
+              </h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>

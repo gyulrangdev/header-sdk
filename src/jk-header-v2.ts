@@ -1,6 +1,7 @@
 import { LitElement, css, html } from "lit";
 import { property } from "lit/decorators.js";
 import type { Environment, ThemeMode, HeaderEndpoints } from "./types";
+import "./jk-auth.js";
 
 const HEADER_STYLES = css`
   :host {
@@ -88,28 +89,6 @@ const HEADER_STYLES = css`
     opacity: 0.7;
   }
 
-  .top_menu .login_area {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .top_menu .company_btn {
-    background: #f5f5f5;
-    color: #333;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  }
-
-  .top_menu .company_btn:hover {
-    background: #e0e0e0;
-  }
-
   /* 네비게이션 영역 */
   .nav_area {
     width: 100%;
@@ -126,6 +105,12 @@ export class JkHeaderV2 extends LitElement {
   @property({ type: String, attribute: "data-endpoints" }) endpointsAttr:
     | string
     | undefined;
+  @property({ type: Object }) user?: {
+    id: string;
+    name: string;
+    email: string;
+    type: "personal" | "company";
+  };
 
   private endpoints: HeaderEndpoints = {};
 
@@ -206,6 +191,17 @@ export class JkHeaderV2 extends LitElement {
         })
       );
     });
+
+    this.addEventListener("jk:auth", (e) => {
+      // 인증 이벤트를 상위로 전파
+      this.dispatchEvent(
+        new CustomEvent("jk:auth", {
+          detail: (e as CustomEvent).detail,
+          bubbles: true,
+          composed: true,
+        })
+      );
+    });
   }
 
   render() {
@@ -254,16 +250,7 @@ export class JkHeaderV2 extends LitElement {
               <span class="icon">💼</span>
               나인하이어
             </a>
-            <div class="login_area">
-              <a href="/login" @click=${this.handleLinkClick}>로그인</a>
-              <a href="/register" @click=${this.handleLinkClick}>회원가입</a>
-              <a
-                href="/company"
-                class="company_btn"
-                @click=${this.handleLinkClick}
-                >기업서비스</a
-              >
-            </div>
+            <jk-auth ?spa=${this.spaMode} .user=${this.user}></jk-auth>
           </div>
         </div>
       </div>

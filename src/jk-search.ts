@@ -1,5 +1,7 @@
 import { LitElement, css, html } from "lit";
 import { property } from "lit/decorators.js";
+import { getV1KeywordsAutocompletes, validateSearchKeyword, debounce } from "./api/auto-complete.api.js";
+import type { AutoCompleteKeyword, DirectKeyword } from "./api/types.js";
 
 const SEARCH_STYLES = css`
   :host {
@@ -162,49 +164,68 @@ export class JkSearch extends LitElement {
   @property({ type: Boolean, reflect: true, attribute: "spa" }) spaMode = false;
 
   private searchQuery: string = "";
-  private suggestions: string[] = [
-    "잡코리아 AI 챌린지",
-    "개발자",
-    "디자이너",
-    "마케팅",
-    "영업",
-    "기획",
-    "서울",
-    "경기",
-    "부산",
-    "대구",
-    "신입",
-    "경력",
-    "인턴",
-    "정규직",
-    "계약직",
-  ];
+  private autoCompleteData: AutoCompleteKeyword[] = [];
+  private directData: DirectKeyword[] = [];
   private recentSearches: string[] = [
     "개발자 채용",
     "마케팅 신입",
     "서울 기획자",
   ];
-  private filteredSuggestions: string[] = [];
   private showAutocomplete = false;
+  private isLoading = false;
+  private autoCompleteEnabled = true;
+
+  private debouncedAutoComplete = debounce(async (keyword: string) => {
+    console.log('🔍 Auto complete triggered for keyword:', keyword);
+    
+    if (!keyword.trim() || !validateSearchKeyword(keyword) || !this.autoCompleteEnabled) {
+      console.log('❌ Validation failed or auto complete disabled');
+      this.autoCompleteData = [];
+      this.directData = [];
+      this.isLoading = false;
+      this.requestUpdate();
+      return;
+    }
+
+    this.isLoading = true;
+    this.requestUpdate();
+    console.log('⏳ Loading started...');
+
+    try {
+      console.log('🌐 Calling API for keyword:', keyword);
+      const response = await getV1KeywordsAutocompletes(keyword, 10);
+      console.log('✅ API Response:', response);
+      this.autoCompleteData = response.autoComplete;
+      this.directData = response.direct;
+    } catch (error) {
+      console.error('❌ Auto complete error:', error);
+      this.autoCompleteData = [];
+      this.directData = [];
+    }
+
+    this.isLoading = false;
+    this.requestUpdate();
+    console.log('✅ Loading finished');
+  }, 100);
 
   private onSearchInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement;
     this.searchQuery = input.value;
 
     if (this.searchQuery.trim()) {
-      this.filteredSuggestions = this.suggestions
-        .filter((s) => s.toLowerCase().includes(this.searchQuery.toLowerCase()))
-        .slice(0, 6);
       this.showAutocomplete = true;
+      this.debouncedAutoComplete(this.searchQuery);
     } else {
       this.showAutocomplete = this.recentSearches.length > 0;
+      this.autoCompleteData = [];
+      this.directData = [];
     }
     this.requestUpdate();
   };
 
   private onSearchFocus = () => {
     if (this.searchQuery.trim()) {
-      if (this.filteredSuggestions.length > 0) {
+      if (this.autoCompleteData.length > 0 || this.directData.length > 0) {
         this.showAutocomplete = true;
       }
     } else {
@@ -265,6 +286,24 @@ export class JkSearch extends LitElement {
     }
   };
 
+  private onDirectClick = (item: DirectKeyword) => {
+    if (item.linkUrl) {
+      if (this.spaMode) {
+        this.dispatchEvent(
+          new CustomEvent("jk:navigate", {
+            detail: { url: item.linkUrl },
+            bubbles: true,
+            composed: true,
+          })
+        );
+      } else {
+        window.location.href = item.linkUrl;
+      }
+    }
+    this.showAutocomplete = false;
+    this.requestUpdate();
+  };
+
   private clearRecentSearches = () => {
     this.recentSearches = [];
     this.requestUpdate();
@@ -291,18 +330,47 @@ export class JkSearch extends LitElement {
           <ul>
             ${this.searchQuery.trim()
               ? html`
-                  <div class="suggestion_section">
-                    <div class="suggestion_title">검색어 추천</div>
-                    ${this.filteredSuggestions.map(
-                      (suggestion) => html`
-                        <li
-                          @mousedown=${() => this.onSuggestionClick(suggestion)}
-                        >
-                          ${suggestion}
-                        </li>
-                      `
-                    )}
-                  </div>
+                  ${this.isLoading
+                    ? html`<li>검색 중...</li>`
+                    : html`
+                        ${this.autoCompleteData.length > 0
+                          ? html`
+                              <div class="suggestion_section">
+                                <div class="suggestion_title">검색어 추천</div>
+                                ${this.autoCompleteData.map(
+                                  (item) => html`
+                                    <li
+                                      @mousedown=${() => this.onSuggestionClick(item.keyword)}
+                                      title="${item.featureName || item.featureCode}"
+                                    >
+                                      ${item.keyword}
+                                      ${item.featureName 
+                                        ? html`<span style="color: #666; font-size: 12px; margin-left: 8px;">${item.featureName}</span>`
+                                        : ''}
+                                    </li>
+                                  `
+                                )}
+                              </div>
+                            `
+                          : ''}
+                        ${this.directData.length > 0
+                          ? html`
+                              <div class="suggestion_section">
+                                <div class="suggestion_title">바로가기</div>
+                                ${this.directData.map(
+                                  (item) => html`
+                                    <li
+                                      @mousedown=${() => this.onDirectClick(item)}
+                                      style="color: #003cff;"
+                                    >
+                                      ${item.content}
+                                    </li>
+                                  `
+                                )}
+                              </div>
+                            `
+                          : ''}
+                      `}
                 `
               : html`
                   <div class="recent_searches">

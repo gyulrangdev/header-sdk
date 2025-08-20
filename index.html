@@ -64,21 +64,20 @@
     </style>
   </head>
   <body>
-    <script type="module">
-      import "./src/index.ts";
-      import "./src/jk-header-v2.ts";
-    </script>
+    <script type="module" src="./src/demo.js"></script>
 
     <!-- 통합 헤더 (새 버전) -->
     <jk-header-v2 env="dev" spa locale="ko-KR"></jk-header-v2>
 
     <main>
       <div class="demo-section">
-        <h2>JK Header SDK 데모</h2>
-        <p>
-          잡코리아 헤더를 Web Component로 구현한 SDK입니다. 각 컴포넌트는
-          독립적으로 사용할 수 있습니다.
-        </p>
+        <div class="component-demo">
+        <h2>JK Total Menu 데모</h2>
+        <jk-total-menu
+          id="total-menu"
+          tabindex="-1"
+        >
+        </jk-total-menu>
       </div>
 
       <div class="demo-section">
@@ -87,6 +86,12 @@
         <div class="component-demo">
           <h3>검색 컴포넌트 (jk-search)</h3>
           <jk-search spa placeholder="개별 검색창 테스트"></jk-search>
+        </div>
+
+        <div class="component-demo">
+          <h3>인증 컴포넌트 (jk-auth)</h3>
+          <jk-auth id="standalone-auth" spa></jk-auth>
+          <button onclick="toggleAuth()">로그인/로그아웃 토글</button>
         </div>
 
         <div class="component-demo">
@@ -113,41 +118,5 @@
       </div>
     </main>
 
-    <script>
-      const log = document.getElementById("log");
-
-      function write(e) {
-        const time = new Date().toLocaleTimeString();
-        const entry = `[${time}] ${e.type} -> ${JSON.stringify(e.detail)}\n`;
-        log.textContent = entry + log.textContent;
-      }
-
-      function clearLog() {
-        log.textContent = "이벤트가 여기에 표시됩니다...\n";
-      }
-
-      // 이벤트 리스너 등록
-      addEventListener("jk:navigate", write);
-      addEventListener("jk:search", write);
-      addEventListener("jk:error", write);
-
-      // 테스트용 링크 클릭 이벤트 (Web Component 외부 링크만)
-      document.addEventListener("click", (e) => {
-        if (
-          e.target.tagName === "A" &&
-          e.target.href &&
-          e.target.href.startsWith(window.location.origin) &&
-          !e.target.closest("jk-nav") && // jk-nav 내부 링크 제외
-          !e.target.closest("jk-search") && // jk-search 내부 링크 제외
-          !e.target.closest("jk-header-v2") // jk-header-v2 내부 링크 제외
-        ) {
-          e.preventDefault();
-          write({
-            type: "link:click",
-            detail: { href: e.target.href, text: e.target.textContent },
-          });
-        }
-      });
-    </script>
   </body>
 </html>

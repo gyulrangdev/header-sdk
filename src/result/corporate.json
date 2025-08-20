@@ -1,0 +1,1514 @@
+{
+  "gridTemplateColumns": [207, 207, 207, 207, 207, 240],
+  "gridTemplateAreas": [
+    [
+      "section1-1",
+      "section2-1",
+      "section3-1",
+      "section4-1",
+      "section5-1",
+      "section6-1"
+    ],
+    [
+      "section1-1",
+      "section2-1",
+      "section3-1",
+      "section4-1",
+      "section5-1",
+      "section6-1"
+    ],
+    [
+      "section1-2",
+      "section2-1",
+      "section3-1",
+      "section4-1",
+      "section5-1",
+      "section6-2"
+    ],
+    [
+      "section7-1",
+      "section7-1",
+      "section7-1",
+      "section7-1",
+      "section7-1",
+      "section6-2"
+    ]
+  ],
+  "totalWidth": 1280,
+  "totalHeight": 465,
+  "sectionList": [
+    {
+      "id": "7d675e1d",
+      "gridArea": "section1-1",
+      "backgroundColor": "base-white",
+      "flexDirection": "column",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "borderLeft": { "size": 1, "color": "gray-gray200" },
+        "paddingTop": "space24",
+        "paddingBottom": "space16",
+        "paddingLeft": "space24"
+      },
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "c21f281f",
+          "menuId": "recruit-title",
+          "menuName": "채용정보",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/recruit/joblist?menucode=local&localorder=1"
+          },
+          "layoutProps": { "marginBottom": "space12" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size16",
+            "color": "gray900",
+            "weight": "bold"
+          },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "채용공고", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "df70f1c4",
+          "menuId": "recruit-local",
+          "menuName": "지역별",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/recruit/joblist?menucode=local&localorder=1"
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "지역별", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "0016cb12",
+          "menuId": "recruit-duty",
+          "menuName": "직무별",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/recruit/joblist?menucode=duty"
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "직무별", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "cb44ef1f",
+          "menuId": "recruit-cotype",
+          "menuName": "기업별",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/recruit/joblist?menucode=cotype1&cotype=1,2,3"
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "기업별", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "a5a11213",
+          "menuId": "recruit-industry",
+          "menuName": "산업별",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/recruit/joblist?menucode=industry"
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "산업별", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "7c6bc0f6",
+          "menuId": "recruit-top100",
+          "menuName": "TOP100",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/top100"
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "TOP100", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "06600b9a",
+          "menuId": "recruit-special",
+          "menuName": "전문채용관",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/Theme/Main"
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "전문채용관", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "695a8329",
+          "menuId": "recruit-super",
+          "menuName": "슈퍼기업관",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/Super/Main"
+          },
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "슈퍼기업관", "page": "" }
+        }
+      ]
+    },
+    {
+      "id": "a1047e95",
+      "gridArea": "section1-2",
+      "backgroundColor": "base-white",
+      "flexDirection": "column",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "borderLeft": { "size": 1, "color": "gray-gray200" },
+        "paddingBottom": "space16",
+        "paddingLeft": "space24"
+      },
+      "flexJustify": "flex-end",
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "ad551adc",
+          "menuId": "event-customer",
+          "menuName": "고객센터",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/help/faq/user"
+          },
+          "layoutProps": { "marginBottom": "space8" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "headset",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "고객센터", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "d38f3239",
+          "menuId": "event-notice",
+          "menuName": "공지사항",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/help/notice?tab=2"
+          },
+          "layoutProps": { "marginBottom": "space8" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "loudspeaker",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "공지사항", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "26dfad1d",
+          "menuId": "event-event",
+          "menuName": "이벤트",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/help/event"
+          },
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "event",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "이벤트", "page": "" }
+        }
+      ]
+    },
+    {
+      "id": "71388255",
+      "gridArea": "section2-1",
+      "backgroundColor": "base-white",
+      "flexDirection": "column",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "paddingTop": "space24",
+        "paddingLeft": "space24"
+      },
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "9d90e5c2",
+          "menuId": "onepick-title",
+          "menuName": "이직은 원픽",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/OnePick/JobList?Ord=GcmCodeAmtDesc"
+          },
+          "layoutProps": { "marginBottom": "space12" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size16",
+            "color": "gray900",
+            "weight": "bold"
+          },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "이직은 원픽", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "90b73076",
+          "menuId": "onepick_info",
+          "menuName": "합격축하금 공고",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/OnePick/JobList?Ord=GcmCodeAmtDesc"
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "합격축하금 공고", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "e41f1f6d",
+          "menuId": "onepick_service",
+          "menuName": "원픽서비스 안내",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/OnePick/ServiceInfo"
+          },
+          "layoutProps": { "marginBottom": "space24" },
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "regular"
+          },
+          "ga": { "area": "", "label": "원픽서비스 안내", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "923d5573",
+          "menuId": "ai-jobs-title",
+          "menuName": "AI 잡스",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/recruit/ai-jobs",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space24" },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "AI 잡스", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "a124c25b",
+          "menuId": "hightech-title",
+          "menuName": "하이테크",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/recruit/high-tech",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": {},
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "하이테크", "page": "" }
+        }
+      ]
+    },
+    {
+      "id": "682f9c1d",
+      "gridArea": "section3-1",
+      "backgroundColor": "base-white",
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "c0fdbecc",
+          "menuId": "starter-title",
+          "menuName": "공채정보",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space12" },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "공채정보", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "e530e85e",
+          "menuId": "start-recruit",
+          "menuName": "1000대기업 공채",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "1000대기업 공채", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "8a9ee519",
+          "menuId": "starter-calendar",
+          "menuName": "공채달력",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/calendar",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "공채달력", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "8297e519",
+          "menuId": "starter-schedule",
+          "menuName": "공공기관 채용일정",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/recruitment_schedule",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space24" },
+          "ga": { "area": "", "label": "공공기관 채용일정", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "e76249ea",
+          "menuId": "headhunting-title",
+          "menuName": "헤드헌팅",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/headhunting/home",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space12" },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "헤드헌팅", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "7354ee5e",
+          "menuId": "headhunting-job",
+          "menuName": "헤드헌팅 채용공고",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/headhunting/home",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "헤드헌팅 채용공고", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "3c053639",
+          "menuId": "headhunting-follow",
+          "menuName": "팔로우 헤드헌터",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/headhunting/headhunter/follow",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "팔로우 헤드헌터", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "1cc321c6",
+          "menuId": "headhunting-find",
+          "menuName": "헤드헌터 찾기",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/headhunting/headhunter",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "헤드헌터 찾기", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "3b4ec701",
+          "menuId": "headhunting-consult",
+          "menuName": "채용 상담",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/User/consulting",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": {},
+          "ga": { "area": "", "label": "채용 상담", "page": "" }
+        }
+      ],
+      "flexDirection": "column",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "paddingTop": "space24",
+        "paddingLeft": "space24"
+      }
+    },
+    {
+      "id": "2295a630",
+      "gridArea": "section4-1",
+      "backgroundColor": "base-white",
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "f49f98bf",
+          "menuId": "salary-title",
+          "menuName": "기업연봉",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Review/Home",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space12" },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "기업연봉", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "999daad7",
+          "menuId": "salary-review",
+          "menuName": "기업리뷰",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Review/Home",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "기업리뷰", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "7bc86acd",
+          "menuId": "salary-salary",
+          "menuName": "연봉",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Salary/",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "연봉", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "7db25a0c",
+          "menuId": "salary-report",
+          "menuName": "기업분석보고서",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/companyreport/",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": {},
+          "ga": { "area": "", "label": "기업분석보고서", "page": "" }
+        }
+      ],
+      "flexDirection": "column",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "paddingTop": "space24",
+        "paddingLeft": "space24"
+      }
+    },
+    {
+      "id": "dbb4e95b",
+      "gridArea": "section5-1",
+      "backgroundColor": "base-white",
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "41b0ead1",
+          "menuId": "career-title",
+          "menuName": "커리어",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/passassay/",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space12" },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "커리어", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "16a7861a",
+          "menuId": "career-lab",
+          "menuName": "콘텐츠LAB",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/goodjob/tip",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "콘텐츠LAB", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "16a7861a",
+          "menuId": "career-pass",
+          "menuName": "합격자소서",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/passassay/",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "합격자소서", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "7422f84f",
+          "menuId": "career-review",
+          "menuName": "인적성 면접 후기",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/review",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "인적성 면접 후기", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "c3656a4b",
+          "menuId": "career-jatest",
+          "menuName": "인성역량검사",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Starter/AptitudeTest/JatTest",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "인성역량검사", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "0411ca7b",
+          "menuId": "career-mocktest",
+          "menuName": "공기업 모의고사",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Starter/AptitudeTest/PubCoMockTest",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "공기업 모의고사", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "f232ff8b",
+          "menuId": "career-interview",
+          "menuName": "직무인터뷰",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/starter/interview",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "직무인터뷰", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": false,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "1f24134a",
+          "menuId": "career-mict",
+          "menuName": "역량테스트(MICT)",
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "역량테스트(MICT)", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "e3d60c92",
+          "menuId": "career-tool",
+          "menuName": "취업TOOL",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/service/user/tool/textcount",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "취업TOOL", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "30a05c12",
+          "menuId": "career-form",
+          "menuName": "문서서식자료",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/GoodJob/Docs/form",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space24" },
+          "ga": { "area": "", "label": "문서서식자료", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "562880c7",
+          "menuId": "talktalk-title",
+          "menuName": "취업톡톡",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/User/Qstn/index",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": {},
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "취업톡톡", "page": "" }
+        }
+      ],
+      "flexDirection": "column",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "paddingTop": "space24",
+        "paddingLeft": "space24"
+      }
+    },
+    {
+      "id": "37c0391b",
+      "gridArea": "section6-1",
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": true,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "e76d1dbf",
+          "menuId": "corporate-title",
+          "menuName": "기업회원 홈",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Corp/Main",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space16" },
+          "rightIconProps": { "name": "arrow-right", "size": "16" },
+          "ga": { "area": "", "label": "기업회원 홈", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "20de459e",
+          "menuId": "corporate-regist",
+          "menuName": "공고등록",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Corp/Recruit/Regist",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "공고등록", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "f087f40c",
+          "menuId": "corporate-mange",
+          "menuName": "공고·지원자 관리",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Corp/GiMng/List",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "공고·지원자 관리", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "81b1ac23",
+          "menuId": "corporate-find",
+          "menuName": "인재정보",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/corp/person/find",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "인재정보", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "014f5575",
+          "menuId": "corporate-onepick",
+          "menuName": "원픽서비스 안내",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/OnePick/Intro",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "원픽서비스 안내", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "fc933908",
+          "menuId": "corporate-ats",
+          "menuName": "채용 관리 솔루션(ATS) 안내",
+          "linkProps": {
+            "href": "https://www.ninehire.com/",
+            "target": "_blank"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": {
+            "area": "",
+            "label": "채용 관리 솔루션(ATS) 안내",
+            "page": ""
+          }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "48e56c52",
+          "menuId": "corporate-servvice",
+          "menuName": "기업회원 서비스 안내",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Service/Company/Option",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": { "marginBottom": "space6" },
+          "ga": { "area": "", "label": "기업회원 서비스 안내", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "232ca697",
+          "menuId": "corporate-info",
+          "menuName": "기업정보관리",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/Corp/Info/Company",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "regular",
+            "underline": false
+          },
+          "layoutProps": {},
+          "ga": { "area": "", "label": "기업정보관리", "page": "" }
+        }
+      ],
+      "flexDirection": "column",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "paddingTop": "space24",
+        "paddingLeft": "space24"
+      },
+      "backgroundColor": "gray-gray50"
+    },
+    {
+      "id": "f551a41a",
+      "gridArea": "section6-2",
+      "flexAlign": "flex-end",
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": true,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "22523f3e",
+          "menuId": "banner-image",
+          "menuName": "배너이미지",
+          "linkProps": {
+            "href": "https://jts.jobkorea.co.kr/OnePick/Intro",
+            "target": "_blank"
+          },
+          "typographyProps": {
+            "color": "gray900",
+            "variant": "size16",
+            "weight": "bold",
+            "underline": false
+          },
+          "layoutProps": {},
+          "imageProps": {
+            "src": "https://i.jobkorea.kr/content/images/personal/main/nav_wrap_banner_corp.png?202505091000",
+            "alt": "원픽배너",
+            "width": 192,
+            "height": 76
+          },
+          "ga": { "area": "", "label": "배너이미지", "page": "" }
+        }
+      ],
+      "flexDirection": "row",
+      "layoutProps": {
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "paddingBottom": "space24",
+        "paddingLeft": "space24"
+      },
+      "backgroundColor": "gray-gray50"
+    },
+    {
+      "id": "37af25f8",
+      "gridArea": "section7-1",
+      "backgroundColor": "base-white",
+      "flexDirection": "row",
+      "flexAlign": "center",
+      "gapX": "space20",
+      "layoutProps": {
+        "borderTop": { "size": 1, "color": "gray-gray200" },
+        "borderRight": { "size": 1, "color": "gray-gray200" },
+        "borderLeft": { "size": 1, "color": "gray-gray200" },
+        "paddingTop": "space20",
+        "paddingRight": "space24",
+        "paddingBottom": "space20",
+        "paddingLeft": "space24"
+      },
+      "menuList": [
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": false,
+          "useRightIcon": false,
+          "useLeftIcon": false,
+          "useTypography": true,
+          "id": "a775f9e1",
+          "menuId": "recommand-title",
+          "menuName": "추천서비스",
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray900",
+            "weight": "bold"
+          },
+          "ga": { "area": "", "label": "추천서비스", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "cb5e31fc",
+          "menuId": "recommand-onepick",
+          "menuName": "원픽채용",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/OnePick/Intro"
+          },
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "onepick",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "원픽채용", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "a9e15c2c",
+          "menuId": "recommand-company",
+          "menuName": "채용광고",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/Service/Company/Option"
+          },
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "buy-opt",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "채용광고", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "1b30de71",
+          "menuId": "recommand-ad",
+          "menuName": "배너광고",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://jts.jobkorea.co.kr/service/company/ad"
+          },
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "company-option",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "배너광고", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "cb153a75",
+          "menuId": "recommand-ats",
+          "menuName": "채용 관리 솔루션(ATS)",
+          "linkProps": {
+            "target": "_blank",
+            "href": "https://www.ninehire.com/"
+          },
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "lawintro",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "채용 관리 솔루션(ATS)", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "198c9830",
+          "menuId": "recommand-jat",
+          "menuName": "기업용 인적성 검사",
+          "linkProps": {
+            "target": "_self",
+            "href": "https://assessment.jobkorea.co.kr/JAT/Introduction"
+          },
+          "layoutProps": {},
+          "typographyProps": {
+            "underline": false,
+            "variant": "size14",
+            "color": "gray700",
+            "weight": "medium"
+          },
+          "leftIconProps": {
+            "name": "jat",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "기업용 인적성 검사", "page": "" }
+        },
+        {
+          "useGA": true,
+          "useImage": false,
+          "useLink": true,
+          "useRightIcon": false,
+          "useLeftIcon": true,
+          "useTypography": true,
+          "id": "5c8a56fe",
+          "menuId": "recommand-oras",
+          "menuName": "채용대행 솔루션",
+          "linkProps": {
+            "href": "https://assessment.jobkorea.co.kr/ORAS/Introduction",
+            "target": "_self"
+          },
+          "typographyProps": {
+            "color": "gray700",
+            "variant": "size14",
+            "weight": "medium",
+            "underline": false
+          },
+          "layoutProps": {},
+          "leftIconProps": {
+            "name": "oras",
+            "size": "20",
+            "marginRight": "space4"
+          },
+          "ga": { "area": "", "label": "채용대행 솔루션", "page": "" }
+        }
+      ]
+    }
+  ]
+}
