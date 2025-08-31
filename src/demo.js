@@ -1,6 +1,6 @@
 // Header SDK Demo 초기화 스크립트
 import "./index.ts";
-import "./jk-header-v2.ts";
+import "./jk-header.ts";
 import "./jk-auth.ts";
 import headerData from "./result/corporate.json" assert { type: "json" };
 
@@ -32,10 +32,12 @@ window.handleGaClick = (ga) => {
 window.toggleAuth = () => {
   const authComponent = document.getElementById("standalone-auth");
   if (authComponent) {
-    if (authComponent.user) {
+    if (authComponent.hasAttribute("logged-in")) {
       authComponent.user = null;
+      authComponent.removeAttribute("logged-in");
     } else {
       authComponent.user = window.testUser;
+      authComponent.setAttribute("logged-in", "true");
     }
   }
 };
@@ -57,7 +59,7 @@ function initializeTotalMenu() {
 }
 
 function initializeHeader() {
-  // 헤더 초기화 완료 - 자동 로그인 제거
+  // 헤더 초기화 완료 - slot을 통해 jk-auth가 주입되므로 별도 설정 불필요
 }
 
 // Promise 기반 로그인 시뮬레이션
@@ -65,9 +67,10 @@ function simulateLogin() {
   return new Promise((resolve) => {
     console.log("로그인 중...");
     setTimeout(() => {
-      const header = document.querySelector("jk-header-v2");
-      if (header) {
-        header.user = window.testUser;
+      const authComponent = document.querySelector("jk-auth[slot='auth']");
+      if (authComponent) {
+        authComponent.setAttribute("user", JSON.stringify(window.testUser));
+        authComponent.setAttribute("logged-in", "true");
         console.log("로그인 완료!");
         resolve(window.testUser);
       }
@@ -91,31 +94,32 @@ function setupEventListeners() {
   window.addEventListener("jk:error", writeLog);
   window.addEventListener("jk:auth", async (e) => {
     writeLog(e);
-    
+
     // 로그인 액션 처리
     if (e.detail.action === "login") {
       try {
         await simulateLogin();
         writeLog({
           type: "auth:success",
-          detail: { message: "로그인 성공", user: window.testUser }
+          detail: { message: "로그인 성공", user: window.testUser },
         });
       } catch (error) {
         writeLog({
-          type: "auth:error", 
-          detail: { message: "로그인 실패", error }
+          type: "auth:error",
+          detail: { message: "로그인 실패", error },
         });
       }
     }
-    
+
     // 로그아웃 액션 처리
     if (e.detail.action === "logout") {
-      const header = document.querySelector("jk-header-v2");
-      if (header) {
-        header.user = null;
+      const authComponent = document.querySelector("jk-auth[slot='auth']");
+      if (authComponent) {
+        authComponent.removeAttribute("user");
+        authComponent.removeAttribute("logged-in");
         writeLog({
           type: "auth:success",
-          detail: { message: "로그아웃 완료" }
+          detail: { message: "로그아웃 완료" },
         });
       }
     }
@@ -136,7 +140,7 @@ function setupEventListeners() {
       e.target.href.startsWith(window.location.origin) &&
       !e.target.closest("jk-nav") && // jk-nav 내부 링크 제외
       !e.target.closest("jk-search") && // jk-search 내부 링크 제외
-      !e.target.closest("jk-header-v2") // jk-header-v2 내부 링크 제외
+      !e.target.closest("jk-header") // jk-header 내부 링크 제외
     ) {
       e.preventDefault();
       writeLog({

@@ -2,8 +2,7 @@
 
 import "./jk-search";
 import "./jk-nav";
-import "./jk-header-v2";
-import "./jk-icon";
+import "./jk-header";
 import "./jk-total-menu";
 
 export type { HeaderEndpoints } from "./types";

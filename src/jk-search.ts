@@ -1,6 +1,10 @@
 import { LitElement, css, html } from "lit";
 import { property } from "lit/decorators.js";
-import { getV1KeywordsAutocompletes, validateSearchKeyword, debounce } from "./api/auto-complete.api.js";
+import {
+  getV1KeywordsAutocompletes,
+  validateSearchKeyword,
+  debounce,
+} from "./api/auto-complete.api.js";
 import type { AutoCompleteKeyword, DirectKeyword } from "./api/types.js";
 
 const SEARCH_STYLES = css`
@@ -176,10 +180,14 @@ export class JkSearch extends LitElement {
   private autoCompleteEnabled = true;
 
   private debouncedAutoComplete = debounce(async (keyword: string) => {
-    console.log('🔍 Auto complete triggered for keyword:', keyword);
-    
-    if (!keyword.trim() || !validateSearchKeyword(keyword) || !this.autoCompleteEnabled) {
-      console.log('❌ Validation failed or auto complete disabled');
+    console.log("🔍 Auto complete triggered for keyword:", keyword);
+
+    if (
+      !keyword.trim() ||
+      !validateSearchKeyword(keyword) ||
+      !this.autoCompleteEnabled
+    ) {
+      console.log("❌ Validation failed or auto complete disabled");
       this.autoCompleteData = [];
       this.directData = [];
       this.isLoading = false;
@@ -189,23 +197,23 @@ export class JkSearch extends LitElement {
 
     this.isLoading = true;
     this.requestUpdate();
-    console.log('⏳ Loading started...');
+    console.log("⏳ Loading started...");
 
     try {
-      console.log('🌐 Calling API for keyword:', keyword);
+      console.log("🌐 Calling API for keyword:", keyword);
       const response = await getV1KeywordsAutocompletes(keyword, 10);
-      console.log('✅ API Response:', response);
+      console.log("✅ API Response:", response);
       this.autoCompleteData = response.autoComplete;
       this.directData = response.direct;
     } catch (error) {
-      console.error('❌ Auto complete error:', error);
+      console.error("❌ Auto complete error:", error);
       this.autoCompleteData = [];
       this.directData = [];
     }
 
     this.isLoading = false;
     this.requestUpdate();
-    console.log('✅ Loading finished');
+    console.log("✅ Loading finished");
   }, 100);
 
   private onSearchInput = (ev: Event) => {
@@ -340,19 +348,24 @@ export class JkSearch extends LitElement {
                                 ${this.autoCompleteData.map(
                                   (item) => html`
                                     <li
-                                      @mousedown=${() => this.onSuggestionClick(item.keyword)}
-                                      title="${item.featureName || item.featureCode}"
+                                      @mousedown=${() =>
+                                        this.onSuggestionClick(item.keyword)}
+                                      title="${item.featureName ||
+                                      item.featureCode}"
                                     >
                                       ${item.keyword}
-                                      ${item.featureName 
-                                        ? html`<span style="color: #666; font-size: 12px; margin-left: 8px;">${item.featureName}</span>`
-                                        : ''}
+                                      ${item.featureName
+                                        ? html`<span
+                                            style="color: #666; font-size: 12px; margin-left: 8px;"
+                                            >${item.featureName}</span
+                                          >`
+                                        : ""}
                                     </li>
                                   `
                                 )}
                               </div>
                             `
-                          : ''}
+                          : ""}
                         ${this.directData.length > 0
                           ? html`
                               <div class="suggestion_section">
@@ -360,7 +373,8 @@ export class JkSearch extends LitElement {
                                 ${this.directData.map(
                                   (item) => html`
                                     <li
-                                      @mousedown=${() => this.onDirectClick(item)}
+                                      @mousedown=${() =>
+                                        this.onDirectClick(item)}
                                       style="color: #003cff;"
                                     >
                                       ${item.content}
@@ -369,7 +383,7 @@ export class JkSearch extends LitElement {
                                 )}
                               </div>
                             `
-                          : ''}
+                          : ""}
                       `}
                 `
               : html`

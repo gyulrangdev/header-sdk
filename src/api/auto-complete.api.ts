@@ -1,81 +1,75 @@
-// 자동완성 API 연동 함수
+// 자동완성 API 연동 함수 (Mock 데이터 사용)
 
-import { HttpClient } from './http-client.js';
 import type {
   AutoCompleteResponse,
-  AutoCompleteParams,
-  DirectParams,
-  AutoCompleteApiResponse,
-  DirectApiResponse
+  AutoCompleteKeyword,
+  DirectKeyword
 } from './types.js';
+import mockData from './mock-data.json';
 
 // 기본 설정
-const DEFAULT_BASE_URL = '/Search/api/display';
 const DEFAULT_MAX_COUNT = 10;
 
-// HTTP 클라이언트 인스턴스
-const httpClient = new HttpClient(DEFAULT_BASE_URL);
-
 /**
- * 자동완성 키워드 API 호출
- * @param params 검색 파라미터
+ * 자동완성 키워드 Mock 데이터 조회
+ * @param keyword 검색할 키워드
+ * @param maxCount 최대 결과 수
  * @returns 자동완성 키워드 목록
  */
-async function getAutoCompleteKeywords(params: AutoCompleteParams): Promise<AutoCompleteApiResponse> {
-  try {
-    const response = await httpClient.get<AutoCompleteApiResponse>('/v1/keywords/autocompletes', {
-      query: {
-        keyword: params.keyword,
-        maxCount: params.maxCount || DEFAULT_MAX_COUNT
-      }
-    });
-    
-    return response;
-  } catch (error) {
-    console.error('Auto complete API error:', error);
-    
-    // 에러 발생 시 빈 결과 반환
-    return {
-      content: [],
-      pageSize: 0,
-      pageNumber: 0,
-      totalElements: 0,
-      totalPages: 0
-    };
+function getAutoCompleteKeywords(keyword: string, maxCount: number = DEFAULT_MAX_COUNT): AutoCompleteKeyword[] {
+  const normalizedKeyword = keyword.toLowerCase().trim();
+  
+  // 키워드가 포함된 항목들을 찾기
+  let results: AutoCompleteKeyword[] = [];
+  
+  for (const [key, items] of Object.entries(mockData.autoComplete)) {
+    if (key.toLowerCase().includes(normalizedKeyword) || normalizedKeyword.includes(key.toLowerCase())) {
+      results = results.concat(items as AutoCompleteKeyword[]);
+    }
   }
+  
+  // 정확히 일치하는 키워드가 있으면 우선순위 부여
+  const exactMatches = results.filter(item => 
+    item.keyword.toLowerCase().includes(normalizedKeyword)
+  );
+  
+  const otherMatches = results.filter(item => 
+    !item.keyword.toLowerCase().includes(normalizedKeyword)
+  );
+  
+  const combined = [...exactMatches, ...otherMatches];
+  
+  // 중복 제거 및 개수 제한
+  const uniqueResults = combined
+    .filter((item, index, self) => 
+      index === self.findIndex(t => t.keyword === item.keyword)
+    )
+    .slice(0, maxCount);
+    
+  return uniqueResults;
 }
 
 /**
- * 바로가기 키워드 API 호출
- * @param params 검색 파라미터
+ * 바로가기 키워드 Mock 데이터 조회
+ * @param keyword 검색할 키워드
  * @returns 바로가기 키워드 목록
  */
-async function getDirectKeywords(params: DirectParams): Promise<DirectApiResponse> {
-  try {
-    const response = await httpClient.get<DirectApiResponse>('/v1/keywords/directs', {
-      query: {
-        keyword: params.keyword
-      }
-    });
-    
-    return response;
-  } catch (error) {
-    console.error('Direct keywords API error:', error);
-    
-    // 에러 발생 시 빈 결과 반환
-    return {
-      content: [],
-      pageSize: 0,
-      pageNumber: 0,
-      totalElements: 0,
-      totalPages: 0
-    };
+function getDirectKeywords(keyword: string): DirectKeyword[] {
+  const normalizedKeyword = keyword.toLowerCase().trim();
+  
+  let results: DirectKeyword[] = [];
+  
+  for (const [key, items] of Object.entries(mockData.direct)) {
+    if (key.toLowerCase().includes(normalizedKeyword) || normalizedKeyword.includes(key.toLowerCase())) {
+      results = results.concat(items as DirectKeyword[]);
+    }
   }
+  
+  return results;
 }
 
 /**
- * 자동완성 및 바로가기 키워드 통합 API 호출
- * 두 API를 병렬로 호출하여 결과를 통합 반환
+ * 자동완성 및 바로가기 키워드 통합 조회 (Mock 데이터 사용)
  * @param keyword 검색할 키워드
  * @param maxCount 자동완성 최대 결과 수 (기본값: 10)
  * @returns 통합된 자동완성 데이터
@@ -84,30 +78,29 @@ export async function getV1KeywordsAutocompletes(
   keyword: string,
   maxCount: number = DEFAULT_MAX_COUNT
 ): Promise<AutoCompleteResponse> {
-  console.log('🚀 API Function called with:', { keyword, maxCount });
-  console.log('📍 Base URL:', DEFAULT_BASE_URL);
+  console.log('🚀 Mock API Function called with:', { keyword, maxCount });
+  
+  // API 호출 시뮬레이션을 위한 지연 시간
+  await new Promise(resolve => setTimeout(resolve, 200));
   
   try {
-    console.log('📡 Making parallel API calls...');
+    console.log('📡 Getting mock data...');
     
-    // 병렬로 API 호출
-    const [autoComplete, direct] = await Promise.all([
-      getAutoCompleteKeywords({ keyword, maxCount }),
-      getDirectKeywords({ keyword })
-    ]);
+    const autoComplete = getAutoCompleteKeywords(keyword, maxCount);
+    const direct = getDirectKeywords(keyword);
 
-    console.log('📥 AutoComplete API result:', autoComplete);
-    console.log('📥 Direct API result:', direct);
+    console.log('📥 AutoComplete mock result:', autoComplete);
+    console.log('📥 Direct mock result:', direct);
 
     const result = {
-      autoComplete: autoComplete.content,
-      direct: direct.content
+      autoComplete,
+      direct
     };
     
     console.log('🎯 Final combined result:', result);
     return result;
   } catch (error) {
-    console.error('❌ Combined autocomplete API error:', error);
+    console.error('❌ Mock autocomplete error:', error);
     
     // 에러 발생 시 빈 결과 반환
     return {

@@ -1,7 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { property } from "lit/decorators.js";
 import type { Environment, ThemeMode, HeaderEndpoints } from "./types";
-import "./jk-auth.js";
 
 const HEADER_STYLES = css`
   :host {
@@ -89,13 +88,29 @@ const HEADER_STYLES = css`
     opacity: 0.7;
   }
 
+  .auth-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .auth-links a {
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+  }
+
+  .auth-links a:hover {
+    color: #003cff;
+  }
+
   /* 네비게이션 영역 */
   .nav_area {
     width: 100%;
   }
 `;
 
-export class JkHeaderV2 extends LitElement {
+export class JkHeader extends LitElement {
   static styles = [HEADER_STYLES];
 
   @property({ type: String, reflect: true }) env: Environment = "prod";
@@ -105,12 +120,6 @@ export class JkHeaderV2 extends LitElement {
   @property({ type: String, attribute: "data-endpoints" }) endpointsAttr:
     | string
     | undefined;
-  @property({ type: Object }) user?: {
-    id: string;
-    name: string;
-    email: string;
-    type: "personal" | "company";
-  };
 
   private endpoints: HeaderEndpoints = {};
 
@@ -250,14 +259,22 @@ export class JkHeaderV2 extends LitElement {
               <span class="icon">💼</span>
               나인하이어
             </a>
-            <jk-auth ?spa=${this.spaMode} .user=${this.user}></jk-auth>
+            <slot name="auth">
+              <!-- 기본 인증 UI (slot이 비어있을 때 표시) -->
+              <div class="auth-links">
+                <a href="/login" @click=${this.handleLinkClick}>로그인</a>
+                <a href="/register" @click=${this.handleLinkClick}>회원가입</a>
+              </div>
+            </slot>
           </div>
         </div>
       </div>
 
       <!-- 네비게이션 영역 -->
       <div class="nav_area">
-        <jk-nav ?spa=${this.spaMode}></jk-nav>
+        <jk-nav ?spa=${this.spaMode}>
+          <slot name="nav-auth" slot="nav-auth"></slot>
+        </jk-nav>
       </div>
     `;
   }
@@ -265,10 +282,10 @@ export class JkHeaderV2 extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "jk-header-v2": JkHeaderV2;
+    "jk-header": JkHeader;
   }
 }
 
-if (!customElements.get("jk-header-v2")) {
-  customElements.define("jk-header-v2", JkHeaderV2);
+if (!customElements.get("jk-header")) {
+  customElements.define("jk-header", JkHeader);
 }

@@ -68,10 +68,26 @@ const NAV_STYLES = css`
   }
 
   .nav_item.onepick > a::before {
-    content: "✓";
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
     margin-right: 4px;
-    color: #4caf50;
-    font-weight: bold;
+    background: #4caf50;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .nav_item.onepick > a::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    width: 6px;
+    height: 3px;
+    border: solid white;
+    border-width: 0 0 2px 2px;
+    transform: rotate(-45deg);
   }
 
   /* 메가메뉴 배경 */
@@ -121,14 +137,14 @@ const NAV_STYLES = css`
     position: relative;
   }
 
-  .mega_section h3 jk-icon {
+  .mega_section h3 svg {
     margin-left: 6px;
     transition: transform 0.2s ease;
-    --icon-size: 16px;
-    --icon-color: #000;
+    width: 16px;
+    height: 16px;
   }
 
-  .mega_section h3:hover jk-icon {
+  .mega_section h3:hover svg {
     transform: translateX(2px);
   }
 
@@ -238,6 +254,30 @@ const NAV_STYLES = css`
     width: 16px;
     height: 16px;
     opacity: 0.7;
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .service_links .icon.user {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23666' d='M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z'/%3E%3C/svg%3E");
+  }
+
+  .service_links .icon.chat {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23666' d='M2.678 11.894a1 1 0 0 1 .287-1.613A6.97 6.97 0 0 0 8 4c1.996 0 3.675.847 4.678 2.281a1 1 0 1 1-1.356 1.438A4.97 4.97 0 0 0 8 6a4.97 4.97 0 0 0-3.322 1.719 1 1 0 0 1-1.613-.287zM8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1z'/%3E%3C/svg%3E");
+  }
+
+  .service_links .icon.chart {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23666' d='M1.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V2.707L.146 3.854a.5.5 0 1 1-.708-.708L1.293 1.293A1 1 0 0 1 2 1h13.5a.5.5 0 0 1 0 1H2zm0 13v-4a.5.5 0 0 1 1 0v3.293l1.854-1.853a.5.5 0 0 1 .708.708L3.207 13.707A1 1 0 0 1 2.5 14H1a.5.5 0 0 1 0-1z'/%3E%3C/svg%3E");
+  }
+
+  .service_links .icon.edit {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23666' d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708L8.5 11.207l-3 1a.5.5 0 0 1-.65-.65l1-3L13.207.854a.5.5 0 0 1 .939 0z'/%3E%3C/svg%3E");
+  }
+
+  .service_links .icon.document {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23666' d='M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z'/%3E%3C/svg%3E");
   }
 
   /* 우측 유틸리티 메뉴 */
@@ -406,8 +446,11 @@ export class JkNav extends LitElement {
 
           <!-- 우측 유틸리티 메뉴 -->
           <div class="util_menu">
-            <a href="/login" @click=${this.handleLinkClick}>로그인</a>
-            <a href="/register" @click=${this.handleLinkClick}>회원가입</a>
+            <slot name="nav-auth">
+              <!-- 기본 인증 UI (slot이 비어있을 때 표시) -->
+              <a href="/login" @click=${this.handleLinkClick}>로그인</a>
+              <a href="/register" @click=${this.handleLinkClick}>회원가입</a>
+            </slot>
             <button class="company_service" type="button">기업서비스</button>
           </div>
         </ul>
@@ -426,7 +469,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>채용정보<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>채용정보<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li><a href="#" @click=${this.handleLinkClick}>지역별</a></li>
@@ -450,7 +495,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>이직은 원픽<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>이직은 원픽<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -474,7 +521,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>AI잡스<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>AI잡스<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
             </div>
 
             <!-- 하이테크 섹션 -->
@@ -484,7 +533,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>하이테크<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>하이테크<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
             </div>
 
             <!-- 공채정보 섹션 -->
@@ -493,7 +544,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>공채정보<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>공채정보<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -519,7 +572,9 @@ export class JkNav extends LitElement {
                   ? "active"
                   : ""}"
               >
-                <h3>헤드헌팅<jk-icon name="chevron-right"></jk-icon></h3>
+                <h3>헤드헌팅<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg></h3>
                 <div class="sub_menu_group">
                   <ul>
                     <li>
@@ -552,7 +607,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>기업·연봉<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>기업·연봉<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -574,7 +631,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>커리어<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>커리어<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -620,7 +679,9 @@ export class JkNav extends LitElement {
                 ? "active"
                 : ""}"
             >
-              <h3>취업톡톡<jk-icon name="chevron-right"></jk-icon></h3>
+              <h3>취업톡톡<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg></h3>
               <div class="sub_menu_group">
                 <ul>
                   <li>
@@ -639,9 +700,9 @@ export class JkNav extends LitElement {
             <!-- 프로필 등록 섹션 -->
             <div class="mega_section profile">
               <h3>
-                프로필 등록하고<br />포지션 제안 받으세요<jk-icon
-                  name="chevron-right"
-                ></jk-icon>
+                프로필 등록하고<br />포지션 제안 받으세요<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 12l4-4-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </h3>
               <div class="sub_menu_group">
                 <ul>
@@ -669,23 +730,23 @@ export class JkNav extends LitElement {
               <h4>추천 서비스</h4>
               <div class="service_links">
                 <a href="#" @click=${this.handleLinkClick}>
-                  <span class="icon">👤</span>
+                  <span class="icon user"></span>
                   직무인터뷰
                 </a>
                 <a href="#" @click=${this.handleLinkClick}>
-                  <span class="icon">💬</span>
+                  <span class="icon chat"></span>
                   인적성면접후기
                 </a>
                 <a href="#" @click=${this.handleLinkClick}>
-                  <span class="icon">📊</span>
+                  <span class="icon chart"></span>
                   일간채용 TOP100
                 </a>
                 <a href="#" @click=${this.handleLinkClick}>
-                  <span class="icon">✏️</span>
+                  <span class="icon edit"></span>
                   글자수세기
                 </a>
                 <a href="#" @click=${this.handleLinkClick}>
-                  <span class="icon">📝</span>
+                  <span class="icon document"></span>
                   학점계산기
                 </a>
               </div>

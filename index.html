@@ -66,8 +66,11 @@
   <body>
     <script type="module" src="./src/demo.js"></script>
 
-    <!-- 통합 헤더 (새 버전) -->
-    <jk-header-v2 env="dev" spa locale="ko-KR"></jk-header-v2>
+    <!-- 통합 헤더 -->
+    <jk-header env="dev" spa locale="ko-KR">
+      <jk-auth slot="auth" spa logged-in user='{"id":"user123","name":"홍길동","email":"hong@example.com","type":"personal"}'></jk-auth>
+      <jk-auth slot="nav-auth" spa logged-in user='{"id":"user123","name":"홍길동","email":"hong@example.com","type":"personal"}'></jk-auth>
+    </jk-header>
 
     <main>
       <div class="demo-section">

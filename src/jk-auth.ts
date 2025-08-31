@@ -15,6 +15,31 @@ export class JkAuth extends LitElement {
       display: flex;
       align-items: center;
       gap: 8px;
+      position: relative;
+    }
+
+    .auth-container {
+      position: relative;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .user-info, .auth-links {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: translateY(-5px);
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .auth-links {
@@ -124,7 +149,9 @@ export class JkAuth extends LitElement {
   `;
 
   @property({ type: Object }) user?: User;
+  @property({ type: String, attribute: "user" }) userAttr?: string;
   @property({ type: Boolean, reflect: true, attribute: "spa" }) spaMode = false;
+  @property({ type: Boolean, reflect: true, attribute: "logged-in" }) loggedIn = false;
   @property({ type: Boolean }) showUserMenu = false;
 
   private handleLinkClick = (ev: Event) => {
@@ -188,6 +215,27 @@ export class JkAuth extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     document.addEventListener("click", this.handleOutsideClick);
+    // 초기 user 파싱
+    if (this.userAttr) {
+      this.user = this.parseUser(this.userAttr);
+    }
+  }
+
+  protected willUpdate(changed: Map<string, unknown>): void {
+    if (changed.has("userAttr")) {
+      this.user = this.parseUser(this.userAttr);
+    }
+  }
+
+  private parseUser(value?: string): User | undefined {
+    if (!value) return undefined;
+    try {
+      const obj = JSON.parse(value);
+      return obj ?? undefined;
+    } catch {
+      console.warn("Invalid user JSON:", value);
+      return undefined;
+    }
   }
 
   disconnectedCallback() {
@@ -202,10 +250,12 @@ export class JkAuth extends LitElement {
   };
 
   render() {
-    if (this.user) {
-      return html`
-        <div class="user-info">
-          <span class="user-name">${this.user.name}</span>
+    const isLoggedIn = this.loggedIn && this.user;
+    
+    return html`
+      <div class="auth-container ${isLoggedIn ? 'show-user' : 'show-auth'}">
+        <div class="user-info ${isLoggedIn ? 'visible' : 'hidden'}">
+          <span class="user-name">${this.user?.name || ''}</span>
           <div class="user-menu">
             <button
               class="user-menu-btn"
@@ -221,13 +271,11 @@ export class JkAuth extends LitElement {
             </div>
           </div>
         </div>
-      `;
-    }
-
-    return html`
-      <div class="auth-links">
-        <a href="/login" @click=${this.handleLogin}>로그인</a>
-        <a href="/register" @click=${this.handleRegister}>회원가입</a>
+        
+        <div class="auth-links ${!isLoggedIn ? 'visible' : 'hidden'}">
+          <a href="/login" @click=${this.handleLogin}>로그인</a>
+          <a href="/register" @click=${this.handleRegister}>회원가입</a>
+        </div>
       </div>
     `;
   }
